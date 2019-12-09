@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home City</title>
+</head>
+<body>
+<form>
+    <div>
+        <div>
+            <div>
+                <h1>Danh  sach thanh pho</h1>
+            </div>
+            <div>
+                <table border="1">
+                    <tr>
+                        <th>Ma thanh pho</th>
+                        <th>Ten thanh pho</th>
+                        <th>Dien tich</th>
+                        <th>Dan so</th>
+                        <th>GDP</th>
+                        <th>Mo ta</th>
+                        <th>Chuc nang</th>
+                    </tr>
+                    <th:block th:each="city : ${citys}">
+                        <tr>
+                            <td th:text="*{city.idCity}"></td>
+                            <td th:text="*{city.nameCity}"></td>
+                            <td th:text="*{city.acreage}"></td>
+                            <td th:text="*{city.population}"></td>
+                            <td th:text="*{city.GDP}"></td>
+                            <td th:text="*{city.description}"></td>
+                            <th>
+                                <a th:href="@{/city/updatecity/__${city.idCity}__}">Edit</a>
+                                <a th:href="@{/city/dropcity/__${city.idCity}__}">Delete</a>
+                            </th>
+                        </tr>
+                    </th:block>
+                </table>
+            </div>
+            <div>
+                <p>
+                    <a th:href="@{/citys/createcity}"><b>Them loai sach moi!</b></a>
+                </p>
+            </div>
+            <div>
+                <a th:href="@{'/citys/show'(page=${citys.number - 1})}" th:if="${citys.hasPrevious()}">Previous</a>
+                <span th:text="${citys.number + 1}"></span>/<span th:text="${citys.totalPages}"></span>
+                <a th:href="@{'/citys/show'(page=${citys.number + 1})}" th:if="${citys.hasNext()}">Next</a>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Xoa quoc gia</title>
+</head>
+<body>
+<form method="post" th:action="@{/nation/deletefunction}" th:object="${nation}">
+    <h1>Xoa quoc gia</h1>
+    <p>
+        <a th:href="@{/nation/show}">Quay lai danh sach quoc gia</a>
+    </p>
+    <table border="1">
+        <input type="hidden" th:field="*{idNation}">
+        <tr>
+            <td>Ten quoc gia</td>
+            <td>
+                <input type="text" th:field="*{nameNation}" disabled >
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit">Xoa</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Them loai sach</title>
+</head>
+<body>
+<form method="post" th:action="@{/citys/createcity}" th:field="${city}">
+    <div>
+        <h1>Them moi thanh pho</h1>
+    </div>
+
+    <div>
+        <p>
+            <a th:href="@{/citys/show}"><i>Quay lai danh sach thanh pho</i></a>
+        </p>
+    </div>
+    <div>
+        <th:block th:if="${mess}">
+            <p th:text="${mess}">
+            </p>
+        </th:block>
+    </div>
+    <div>
+        <table border="1">
+            <tr>
+                <td>Ten thanh pho</td>
+                <td><input type="text" th:field="*{city.nameCity}"></td>
+            </tr>
+            <tr>
+                <td>Dien tich</td>
+                <td><input type="text" th:field="*{city.acreage}"></td>
+            </tr>
+            <tr>
+                <td>Dan so</td>
+                <td><input type="text" th:field="*{city.population}"></td>
+            </tr>
+            <tr>
+                <td>GDP </td>
+                <td><input type="text" th:field="*{city.GDP}"></td>
+            </tr>
+            <tr>
+                <td>Mo ta</td>
+                <td><input type="text" th:field="*{city.description}"></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="reset">Huy</button>
+                </td>
+                <td>
+                    <button type="submit">Tao moi</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </div>
+</form>
+</body>
+</html>

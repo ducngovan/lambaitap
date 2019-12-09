@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>danh sach tac gia</title>
+</head>
+<body>
+<h1>Danh sach nha quoc gia</h1>
+<table border="1">
+    <tr>
+        <th>Ma quoc gia</th>
+        <th>Ten quoc gia</th>
+        <th>Chuc nang</th>
+    </tr>
+    <th:block th:each=" nations: ${nation}">
+        <tr>
+            <td th:text="*{nations.idNation}"></td>
+            <td th:text="*{nations.nameNation}"></td>
+            <td>
+                <a th:href="@{/nation/edit/__${nations.idNation}__}">Edit</a>
+                <a th:href="@{/nation/delete/__${nations.idNation}__}">Delete</a>
+            </td>
+        </tr>
+    </th:block>
+</table>
+<p>
+    <u>
+        <a th:href="@{/nation/create}">Them quoc gia</a>
+    </u>
+</p>
+</body>
+</html>

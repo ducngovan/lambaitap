@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Them quoc gia</title>
+</head>
+<body>
+<form method="post" th:action="@{/nation/createfunction}" th:object="${nation}">
+<h1>Them moi quoc gia</h1>
+<p>
+    <a th:href="@{/nation/show}">Quay lai danh sach quoc gia</a>
+</p>
+<p>
+    <th:block th:if="${mess}">
+<p th:text="${mess}"></p>
+</th:block>
+</p>
+    <table border="1">
+        <tr>
+            <td>Ten quoc gia</td>
+            <td>
+               <input type="text" th:field="*{nameNation}" >
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="reset">Reset</button>
+                <button type="submit">Them</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

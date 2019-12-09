@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cap nhat mot phan tu</title>
+</head>
+<body>
+<form method="post" th:action="@{/city/editfunction}" th:field="${city}">
+    <div>
+        <h1>Cap nhat thanh pho</h1>
+    </div>
+    <div>
+        <p>
+            <a th:href="@{/citys/show}"><i>Quay lai danh sach thanh pho</i></a>
+        </p>
+    </div>
+    <div>
+        <table border="1">
+            <input type="hidden" th:field="*{city.idCity}">
+            <tr>
+                <td>Ten thanh pho</td>
+                <td><input type="text" th:field="*{city.nameCity}"></td>
+            </tr>
+            <tr>
+                <td>Dien tich</td>
+                <td><input type="text" th:field="*{city.acreage}"></td>
+            </tr>
+            <tr>
+                <td>Dan so</td>
+                <td><input type="text" th:field="*{city.population}"></td>
+            </tr>
+            <tr>
+                <td>GDP </td>
+                <td><input type="text" th:field="*{city.GDP}"></td>
+            </tr>
+            <tr>
+                <td>Mo ta</td>
+                <td><input type="text" th:field="*{city.description}"></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit">Cap nhat</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </div>
+</form>
+</body>
+</html>
